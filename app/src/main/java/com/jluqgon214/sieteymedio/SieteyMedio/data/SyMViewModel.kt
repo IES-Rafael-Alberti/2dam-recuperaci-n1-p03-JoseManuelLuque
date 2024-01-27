@@ -14,7 +14,7 @@ class SyMViewModel(application: Application) : AndroidViewModel(application) {
         Carta(
         Naipes.As,
         Palos.Oro,
-        1,
+        1.0,
         R.drawable.reverse
     )
     )
@@ -22,7 +22,7 @@ class SyMViewModel(application: Application) : AndroidViewModel(application) {
         Carta(
             Naipes.As,
             Palos.Oro,
-            1,
+            1.0,
             R.drawable.reverse
         )
     )

@@ -22,7 +22,7 @@ class Baraja {
                     val carta = Carta(
                         numero,
                         palo,
-                        indice + 1,
+                        getCardPoints(),
                         0
                     )
                     carta.idDrawable = getIdDrawable(context, "${carta.palo.name[0].toLowerCase()}${indice+1}")
@@ -38,6 +38,24 @@ class Baraja {
                 "drawable",
                 context.packageName
             )
+        }
+
+        fun getCardPoints(): Double{
+            for(valor in 1..10) {
+                when(valor){
+                    1 -> return valor.toDouble()
+                    2 -> return valor.toDouble()
+                    3 -> return valor.toDouble()
+                    4 -> return valor.toDouble()
+                    5 -> return valor.toDouble()
+                    6 -> return valor.toDouble()
+                    7 -> return valor.toDouble()
+                    8 -> return 0.5
+                    9 -> return 0.5
+                    10 -> return 0.5
+                }
+            }
+            return 100.00
         }
 
         fun barajar() {
