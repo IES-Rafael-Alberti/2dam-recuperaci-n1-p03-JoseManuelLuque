@@ -12,9 +12,11 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.jluqgon214.cartamasaltarecuperacion.CartaMasAlta
-import com.jluqgon214.sieteymedio.CartaMasAlta.data.CartaAltaViewModel
-import com.jluqgon214.sieteymedio.SieteyMedio.data.data.SieteYMedio
-import com.jluqgon214.sieteymedio.SieteyMedio.data.SyMViewModel
+import com.jluqgon214.sieteymedio.CartaMasAlta.ui.CartaAltaViewModel
+import com.jluqgon214.sieteymedio.SieteyMedio.dataSyM.data.SieteYMedio
+import com.jluqgon214.sieteymedio.SieteyMedio.ui.SyMViewModel
+import com.jluqgon214.sieteymedio.SieteyMedio.ui.Banca
+import com.jluqgon214.sieteymedio.SieteyMedio.ui.Jugador
 import com.jluqgon214.sieteymedio.ui.MainScreen
 import com.jluqgon214.sieteymedio.ui.theme.SieteYMedioTheme
 
@@ -43,6 +45,14 @@ class MainActivity : ComponentActivity() {
                         }
                         composable("SieteYMedio") {
                             SieteYMedio(SyMViewModel, navController)
+                        }
+
+                        composable("Jugador") {
+                            Jugador(SyMViewModel, navController)
+                        }
+
+                        composable("Banca") {
+                            Banca(SyMViewModel, navController)
                         }
                     }
                 }

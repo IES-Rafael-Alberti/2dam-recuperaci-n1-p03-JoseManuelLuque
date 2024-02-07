@@ -1,4 +1,4 @@
-package com.jluqgon214.sieteymedio.SieteyMedio.data
+package com.jluqgon214.sieteymedio.SieteyMedio.ui
 
 import android.app.Application
 import android.content.Context
@@ -7,8 +7,8 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.jluqgon214.sieteymedio.R
-import com.jluqgon214.sieteymedio.appData.Baraja
-import com.jluqgon214.sieteymedio.appData.Carta
+import com.jluqgon214.sieteymedio.SieteyMedio.dataSyM.Baraja
+import com.jluqgon214.sieteymedio.SieteyMedio.dataSyM.Carta
 
 class SyMViewModel(application: Application) : AndroidViewModel(application) {
     val context = MutableLiveData<Context>(getApplication<Application>().applicationContext)
@@ -21,22 +21,27 @@ class SyMViewModel(application: Application) : AndroidViewModel(application) {
     private val _imageDesc = MutableLiveData<String>()
     val imageDesc : LiveData<String> = _imageDesc
 
-    private val _imageIdJugador1 = MutableLiveData<Int>()
-    val imageIdJugador1 : LiveData<Int> = _imageIdJugador1
+    private val _imageIdJugador = MutableLiveData<Int>()
+    val imageIdJugador : LiveData<Int> = _imageIdJugador
 
-    private val _imageIdJugador2 = MutableLiveData<Int>()
-    val imageIdJugador2 : LiveData<Int> = _imageIdJugador2
+    private val _imageIdBanca = MutableLiveData<Int>()
+    val imageIdBanca : LiveData<Int> = _imageIdBanca
 
 
-    var cartaJ1 = MutableLiveData<Carta>()
-    var cartaJ2 = MutableLiveData<Carta>()
+    var cartaJugador = MutableLiveData<Carta>()
+    var cartaBanca = MutableLiveData<Carta>()
+
+    var cartasDeJugador =  mutableListOf<MutableLiveData<Carta>>()
+    var cartasDeBanca = mutableListOf<MutableLiveData<Carta>>()
 
     fun getCard() {
-        cartaJ1.value = Baraja.dameCarta()
-        _imageIdJugador1.value = cartaJ1.value?.idDrawable
+        cartaJugador.value = Baraja.dameCarta()
+        _imageIdJugador.value = cartaJugador.value?.idDrawable
+        cartasDeJugador.add(cartaJugador)
 
-        cartaJ2.value = Baraja.dameCarta()
-        _imageIdJugador2.value = cartaJ2.value?.idDrawable
+        cartaBanca.value = Baraja.dameCarta()
+        _imageIdBanca.value = cartaBanca.value?.idDrawable
+        cartasDeBanca.add(cartaBanca)
     }
 
     init {
@@ -50,17 +55,17 @@ class SyMViewModel(application: Application) : AndroidViewModel(application) {
     }
     
     fun getReverseCard(){
-        cartaJ1.value?.idDrawable = R.drawable.reverse
-        _imageIdJugador1.value = R.drawable.reverse
-        cartaJ2.value?.idDrawable = R.drawable.reverse
-        _imageIdJugador2.value = R.drawable.reverse
+        cartaJugador.value?.idDrawable = R.drawable.reverse
+        _imageIdJugador.value = R.drawable.reverse
+        cartaBanca.value?.idDrawable = R.drawable.reverse
+        _imageIdBanca.value = R.drawable.reverse
     }
 
     fun CalcularPuntos(): Int{
-        if(cartaJ1.value?.puntos!! > cartaJ2.value?.puntos!!) {
+        if(cartaJugador.value?.puntos!! > cartaBanca.value?.puntos!!) {
             return 1
         }
-        return if(cartaJ1.value?.puntos!! < cartaJ2.value?.puntos!!) {
+        return if(cartaJugador.value?.puntos!! < cartaBanca.value?.puntos!!) {
             2
         } else{
             0

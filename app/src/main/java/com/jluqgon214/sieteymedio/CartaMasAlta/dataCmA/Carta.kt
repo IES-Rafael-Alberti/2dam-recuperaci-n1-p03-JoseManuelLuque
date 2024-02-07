@@ -1,4 +1,4 @@
-package com.jluqgon214.sieteymedio.appData
+package com.jluqgon214.sieteymedio.CartaMasAlta.dataCmA
 
 class Carta(
     var nombre: Naipes,

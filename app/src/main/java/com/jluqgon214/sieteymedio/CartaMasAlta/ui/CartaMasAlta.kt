@@ -25,10 +25,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.jluqgon214.sieteymedio.CartaMasAlta.data.CartaAltaViewModel
-import com.jluqgon214.sieteymedio.appData.Baraja
+import com.jluqgon214.sieteymedio.CartaMasAlta.ui.CartaAltaViewModel
+import com.jluqgon214.sieteymedio.CartaMasAlta.dataCmA.Baraja
 import com.jluqgon214.sieteymedio.R
-
 
 @Composable
 fun CartaMasAlta(viewModel: CartaAltaViewModel, navController: NavController) {

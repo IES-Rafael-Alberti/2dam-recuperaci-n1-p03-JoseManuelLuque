@@ -1,49 +1,41 @@
-package com.jluqgon214.sieteymedio.SieteyMedio.dataSyM.data
+package com.jluqgon214.sieteymedio.SieteyMedio.ui
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import com.jluqgon214.sieteymedio.R
-import com.jluqgon214.sieteymedio.SieteyMedio.ui.SyMViewModel
 
 @Composable
-fun SieteYMedio(SyMViewModel: SyMViewModel, navController: NavHostController) {
-    Column(
-        modifier = Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Text(text = "Jugador")
-        Spacer(Modifier.size(10.dp))
-        MostrarCarta(viewModel = SyMViewModel, imagenId = R.drawable.reverse)
+fun Jugador(viewModel: SyMViewModel, navController: NavHostController) {
+    Column {
+        Text(text = "Turno del Jugador")
 
-        Spacer(Modifier.size(40.dp))
 
-        Text(text = "Banca")
-        Spacer(Modifier.size(10.dp))
-        MostrarCarta(viewModel = SyMViewModel, imagenId = R.drawable.reverse)
+        MostrarCarta(viewModel = viewModel, imagenId = R.drawable.reverse)
 
-        Spacer(Modifier.size(20.dp))
+//        for i in viewModel.cartasDeJugador {
+//
+//        }
+
         Row {
             Button(onClick = { /*TODO*/ }) {
-                Text(text = "Turno Jugador")
+                Text(text = "Dame Carta")
+            }
+
+            Button(onClick = { navController.navigate("SieteYMedio") }) {
+                Text(text = "Pasar Turno")
             }
         }
     }

@@ -1,4 +1,4 @@
-package com.jluqgon214.sieteymedio.CartaMasAlta.data
+package com.jluqgon214.sieteymedio.CartaMasAlta.ui
 
 import android.app.Application
 import android.content.Context
@@ -7,8 +7,8 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.jluqgon214.sieteymedio.R
-import com.jluqgon214.sieteymedio.appData.Baraja
-import com.jluqgon214.sieteymedio.appData.Carta
+import com.jluqgon214.sieteymedio.CartaMasAlta.dataCmA.Baraja
+import com.jluqgon214.sieteymedio.CartaMasAlta.dataCmA.Carta
 
 class CartaAltaViewModel(application: Application) : AndroidViewModel(application) {
     val context = MutableLiveData<Context>(getApplication<Application>().applicationContext)
