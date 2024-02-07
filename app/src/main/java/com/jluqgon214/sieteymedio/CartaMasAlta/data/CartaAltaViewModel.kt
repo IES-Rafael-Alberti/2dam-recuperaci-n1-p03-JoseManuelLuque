@@ -1,4 +1,4 @@
-package com.jluqgon214.sieteymedio.SieteyMedio.data
+package com.jluqgon214.sieteymedio.CartaMasAlta.data
 
 import android.app.Application
 import android.content.Context
@@ -10,7 +10,7 @@ import com.jluqgon214.sieteymedio.R
 import com.jluqgon214.sieteymedio.appData.Baraja
 import com.jluqgon214.sieteymedio.appData.Carta
 
-class SyMViewModel(application: Application) : AndroidViewModel(application) {
+class CartaAltaViewModel(application: Application) : AndroidViewModel(application) {
     val context = MutableLiveData<Context>(getApplication<Application>().applicationContext)
     val gameStarted = MutableLiveData<Boolean>(false)
     val winner = MutableLiveData<Any>()
@@ -38,6 +38,7 @@ class SyMViewModel(application: Application) : AndroidViewModel(application) {
         cartaJ2.value = Baraja.dameCarta()
         _imageIdJugador2.value = cartaJ2.value?.idDrawable
     }
+
 
     init {
         Reiniciar(context.value!!)

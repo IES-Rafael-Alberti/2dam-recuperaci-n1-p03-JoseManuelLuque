@@ -1,7 +1,6 @@
-package com.jluqgon214.sieteymedio.SieteyMedio.data
+package com.jluqgon214.sieteymedio.appData
 
 import android.content.Context
-import android.util.Log
 
 /**
  * Métodos:
@@ -22,12 +21,12 @@ class Baraja {
                     val carta = Carta(
                         numero,
                         palo,
-                        getCardPoints(),
+                        indice + 1,
                         0
                     )
-                    carta.idDrawable = getIdDrawable(context, "${carta.palo.name[0].toLowerCase()}${indice+1}")
+                    carta.idDrawable =
+                        getIdDrawable(context, "${carta.palo.name[0].toLowerCase()}${indice + 1}")
                     listaCartas.add(carta)
-                    Log.e("Id Carta", "${carta.nombre} ${carta.palo} ${carta.idDrawable}")
                 }
             }
         }
@@ -38,24 +37,6 @@ class Baraja {
                 "drawable",
                 context.packageName
             )
-        }
-
-        fun getCardPoints(): Double{
-            for(valor in 1..10) {
-                when(valor){
-                    1 -> return valor.toDouble()
-                    2 -> return valor.toDouble()
-                    3 -> return valor.toDouble()
-                    4 -> return valor.toDouble()
-                    5 -> return valor.toDouble()
-                    6 -> return valor.toDouble()
-                    7 -> return valor.toDouble()
-                    8 -> return 0.5
-                    9 -> return 0.5
-                    10 -> return 0.5
-                }
-            }
-            return 100.00
         }
 
         fun barajar() {

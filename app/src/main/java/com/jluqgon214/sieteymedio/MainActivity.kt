@@ -11,17 +11,20 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.jluqgon214.sieteymedio.SieteyMedio.SieteyMedio
+import com.jluqgon214.cartamasaltarecuperacion.CartaMasAlta
+import com.jluqgon214.sieteymedio.CartaMasAlta.data.CartaAltaViewModel
+import com.jluqgon214.sieteymedio.SieteyMedio.data.data.SieteYMedio
 import com.jluqgon214.sieteymedio.SieteyMedio.data.SyMViewModel
+import com.jluqgon214.sieteymedio.ui.MainScreen
 import com.jluqgon214.sieteymedio.ui.theme.SieteYMedioTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         val SyMViewModel: SyMViewModel by viewModels()
+        val CartaAltaViewModel: CartaAltaViewModel by viewModels()
         super.onCreate(savedInstanceState)
         setContent {
             SieteYMedioTheme {
-                // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
@@ -36,10 +39,10 @@ class MainActivity : ComponentActivity() {
                             MainScreen(navController)
                         }
                         composable("CartaMasAlta") {
-                            //TODO
+                            CartaMasAlta(viewModel = CartaAltaViewModel, navController = navController)
                         }
                         composable("SieteYMedio") {
-                            SieteyMedio(SyMViewModel)
+                            SieteYMedio(SyMViewModel, navController)
                         }
                     }
                 }
