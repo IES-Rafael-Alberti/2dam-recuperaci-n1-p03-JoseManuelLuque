@@ -34,11 +34,13 @@ class SyMViewModel(application: Application) : AndroidViewModel(application) {
     var cartasDeJugador =  mutableListOf<MutableLiveData<Carta>>()
     var cartasDeBanca = mutableListOf<MutableLiveData<Carta>>()
 
-    fun getCard() {
+    fun getCardJugador() {
         cartaJugador.value = Baraja.dameCarta()
         _imageIdJugador.value = cartaJugador.value?.idDrawable
         cartasDeJugador.add(cartaJugador)
+    }
 
+    fun getCardBanca() {
         cartaBanca.value = Baraja.dameCarta()
         _imageIdBanca.value = cartaBanca.value?.idDrawable
         cartasDeBanca.add(cartaBanca)

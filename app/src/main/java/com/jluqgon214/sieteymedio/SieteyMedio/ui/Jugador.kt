@@ -30,7 +30,7 @@ fun Jugador(viewModel: SyMViewModel, navController: NavHostController) {
 //        }
 
         Row {
-            Button(onClick = { /*TODO*/ }) {
+            Button(onClick = { viewModel.getCardJugador() }) {
                 Text(text = "Dame Carta")
             }
 
@@ -45,10 +45,7 @@ fun Jugador(viewModel: SyMViewModel, navController: NavHostController) {
 @Composable
 fun MostrarCarta(viewModel: SyMViewModel, imagenId: Int) {
     Card(
-        onClick = {
-            viewModel.getCard()
-            viewModel.ComprobarGanador()
-        },
+        onClick = { /*TODO*/ },
         modifier = Modifier
             .width(150.dp)
             .height(228.dp)
