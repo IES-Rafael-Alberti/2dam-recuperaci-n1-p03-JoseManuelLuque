@@ -1,9 +1,8 @@
-package com.jluqgon214.sieteymedio.SieteyMedio.data
+package com.jluqgon214.sieteymedio.CartaMasAlta.dataCmA
 
 class Carta(
     var nombre: Naipes,
     var palo: Palos,
-    var puntos: Double,
+    var puntos: Int,
     var idDrawable: Int
-) {
-}
+)
